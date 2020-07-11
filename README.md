@@ -1,6 +1,6 @@
 # bot
 
-git clone git@github.com:atyhtotoda/bot.git
+git clone
 
 pip install pipenv
 
@@ -10,4 +10,4 @@ pipenv shell
 
 pipenv install
 
-pipenv run python webscraping.py -i 'Введите ключевые слова'
+pipenv run python webscraping.py -i Введите ключевые слова
