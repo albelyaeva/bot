@@ -54,11 +54,10 @@ def scrapping(words):
 
         # find page image
         img_find = bs.find(itemprop="image")
-        if img_find['content']:
+        if img_find:
             result['img'] = img_find['content']
         elif bs.findAll('img'):
             image_tags = bs.findAll('img')
-            print(image_tags)
             result['img'] = image_tags[0].get('src')
         else:
             result['img'] = None
