@@ -14,6 +14,7 @@ def scrapping(words):
     
     # get query words
     q = '+'.join(words)
+    print(q)
 
     # create url
     url = 'https://www.googleapis.com/customsearch/v1?key={key}&cx={cx}&num={num}&q='.format(key=KEY, cx=CX,
@@ -77,10 +78,11 @@ def scrapping(words):
         f.write(json.dumps(output, ensure_ascii=False))
 
 
-parser = argparse.ArgumentParser(description='Key words')
-parser.add_argument('-i', '--item', action='store', dest='alist',
-                    type=str, nargs='*', default=['item1', 'item2', 'item3'],
-                    help="Examples: -i item1 item2, -i item3")
-args = parser.parse_args()
-
-scrapping(args.alist)
+scrapping(['Введите', 'ключевые', 'слова'])
+# parser = argparse.ArgumentParser(description='Key words')
+# parser.add_argument('-i', '--item', action='store', dest='alist',
+#                     type=str, nargs='*', default=['item1', 'item2', 'item3'],
+#                     help="Examples: -i item1 item2, -i item3")
+# args = parser.parse_args()
+#
+# scrapping(args.alist)
