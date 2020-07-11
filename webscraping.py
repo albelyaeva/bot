@@ -5,10 +5,6 @@ import requests
 import json
 
 
-KEY = 'AIzaSyDlF0CxkOWuPLn7d7L5fC9ZMQicHlVmBwY'
-CX = '012341715563579400739:gepdcsp-wnm'
-
-
 def scrapping(words):
     s = requests.Session()
     
@@ -29,7 +25,6 @@ def scrapping(words):
     items = objects['items']
 
     output = {}
-    i = 1
 
     for item in items:
         result = {}
@@ -70,19 +65,18 @@ def scrapping(words):
                 name = meta.attrs['name']
                 if name in ATTRIBUTES:
                     result[name.lower()] = meta.attrs['content']
-        output[i] = str(result)
-        i += 1
+        output[item['link']] = str(result)
 
     # output data
     with open('output.json', 'w', encoding="utf-8") as f:
         f.write(json.dumps(output, ensure_ascii=False))
 
 
-scrapping(['Введите', 'ключевые', 'слова'])
-# parser = argparse.ArgumentParser(description='Key words')
-# parser.add_argument('-i', '--item', action='store', dest='alist',
-#                     type=str, nargs='*', default=['item1', 'item2', 'item3'],
-#                     help="Examples: -i item1 item2, -i item3")
-# args = parser.parse_args()
-#
-# scrapping(args.alist)
+# scrapping(['Введите', 'ключевые', 'слова'])
+parser = argparse.ArgumentParser(description='Key words')
+parser.add_argument('-i', '--item', action='store', dest='alist',
+                    type=str, nargs='*', default=['item1', 'item2', 'item3'],
+                    help="Examples: -i item1 item2, -i item3")
+args = parser.parse_args()
+
+scrapping(args.alist)
