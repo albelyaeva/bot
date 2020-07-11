@@ -1,6 +1,6 @@
 # bot
 
-git clone 
+git clone git@github.com:atyhtotoda/bot.git
 
 pip install pipenv
 
