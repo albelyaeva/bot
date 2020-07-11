@@ -1,5 +1,7 @@
 # bot
 
+git clone 
+
 pip install pipenv
 
 cd yourproject
